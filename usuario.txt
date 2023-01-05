@@ -1,0 +1,24 @@
+CREATE DATABASE usuario;
+
+USE usuario;
+
+create table pessoas(
+	id_pessoa int not null PRIMARY key,
+    nome varchar(50),
+    endereco varchar(100),
+    email varchar(40),
+    date DATE
+);
+
+CREATE TABLE CONTAS(
+   ID_Conta int not null AUTO_INCREMENT,
+   pessoas_idpessoas int,
+   FOREIGN KEY (pessoas_idpessoas) REFERENCES pessoas(id_pessoa)
+);
+
+CREATE TABLE cartoes(
+	ID_Cartao int not null PRIMARY KEY,
+    numero varchar(40),
+    contas_ID_Conta int,
+    FOREIGN key (contas_ID_Conta) REFERENCES CONTAS(ID_Conta)
+);
